@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.App {
+  display: flex;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 780px) {
+  .App {
+    flex-direction: column;
+  }
+}

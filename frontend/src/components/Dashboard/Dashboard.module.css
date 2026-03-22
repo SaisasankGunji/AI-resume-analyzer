@@ -1,0 +1,583 @@
+/* ── Outer container ─────────────────────────────────────────────────────── */
+.dashboard {
+  flex: 0.8;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+}
+
+/* ── Top row: 75% left + 25% right ──────────────────────────────────────── */
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ── Left section — 75% ─────────────────────────────────────────────────── */
+.dashboardLeftSection {
+  flex: 0 0 75%;
+  max-width: 75%;
+  min-width: 0;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #f4f6fa;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.45s ease both;
+}
+
+.dashboardHeading {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.dashboardSubHeading {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.alertInfo {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+  font-size: 16px;
+  background-color: white;
+}
+
+.dashboardInstruction {
+  margin-left: 30px;
+  font-size: 14px;
+}
+
+.instructionRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pdfIcon {
+  color: #d32f2f;
+}
+
+.dashboardUploadResume {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.dashboardResumeBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  background-color: white;
+  border-radius: 30px;
+  padding: 15px 30px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboardInputField {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dashboardInputField > input {
+  display: none;
+}
+
+.aiAnalyzeBtn {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 20px 40px;
+  color: white;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fca326, #f94a6b);
+  border-radius: 30px;
+  border: 3px solid black;
+  white-space: nowrap;
+}
+
+.jobDesc {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 30px;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.textArea {
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid rgb(14, 14, 97);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  flex: 1;
+  resize: none;
+  font-size: 15px;
+}
+
+.analyzeBtn {
+  box-sizing: border-box;
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  border: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: linear-gradient(90deg, #fca326, #f94a6b);
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ── Keyframe animations ─────────────────────────────────────────────────── */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Right section — 25% ─────────────────────────────────────────────────── */
+.dashboardRightSection {
+  flex: 0 0 calc(25% - 24px);
+  max-width: calc(25% - 24px);
+  min-width: 0;
+  box-sizing: border-box;
+  animation: slideInRight 0.5s ease both;
+}
+
+/* Profile card — always column layout, centered */
+.rightSectionCard {
+  width: 100%;
+  border-radius: 20px;
+  padding: 30px 20px;
+  background-color: #f4f6fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  box-sizing: border-box;
+}
+
+.rightSectionCard:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+  transform: translateY(-3px);
+}
+
+.rightSectionCard > p {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  word-break: break-word;
+}
+
+.rightSectionCard h2 {
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  word-break: break-word;
+  margin: 0;
+  width: 100%;
+}
+
+.profileImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px 0;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.profileImg:hover {
+  transform: scale(1.06);
+}
+
+/* ── Skeleton ────────────────────────────────────────────────────────────── */
+.skeletonStyling {
+  width: 100% !important;
+  flex-shrink: 0;
+}
+
+/* ── Result section — full width below top row ───────────────────────────── */
+.resultSection {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeInUp 0.5s ease both;
+}
+
+/* ATS Score hero banner */
+.scoreBanner {
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  padding: 30px 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-left: 8px solid var(--score-color, #f59e0b);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.scoreBanner:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.scoreBannerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scoreBannerTitle {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6b7280;
+}
+
+.scoreBannerSub {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.scoreLabel {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: var(--score-color, #f59e0b);
+  color: white;
+  width: fit-content;
+}
+
+.scoreBannerRight {
+  flex-shrink: 0;
+}
+
+.scoreCircle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.scoreNumber {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.scorePercent {
+  font-size: 13px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+/* Feedback + Keywords grid */
+.resultGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.resultCard {
+  background-color: white;
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.resultCard:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.13);
+  transform: translateY(-2px);
+}
+
+.resultCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.resultCardIcon {
+  font-size: 22px;
+}
+
+.resultCardHeader h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  color: #111827;
+}
+
+.feedbackList {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.feedbackList li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  font-size: 15px;
+  color: #374151;
+}
+
+.feedbackList li::marker {
+  color: #2563eb;
+}
+
+.keywordChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.keywordChip {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ── Responsive breakpoints ──────────────────────────────────────────────── */
+
+/* Tablets landscape / small laptops — stack top row vertically */
+@media screen and (max-width: 1024px) {
+  .dashboard {
+    padding: 30px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Both sections go full width when stacked */
+  .dashboardLeftSection {
+    flex: unset;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .dashboardRightSection {
+    flex: unset;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Profile card stays as column, just wider — same look as desktop */
+  .rightSectionCard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .profileImg {
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+  }
+
+  .rightSectionCard > p {
+    font-size: 20px;
+  }
+
+  .rightSectionCard h2 {
+    font-size: 20px;
+  }
+}
+
+/* Tablets portrait */
+@media screen and (max-width: 780px) {
+  .dashboard {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .dashboardHeading {
+    font-size: 24px;
+  }
+
+  .dashboardSubHeading {
+    font-size: 16px;
+  }
+
+  .dashboardUploadResume {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .dashboardResumeBlock {
+    width: 100%;
+  }
+
+  .aiAnalyzeBtn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .jobDesc {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .analyzeBtn {
+    border-radius: 30px;
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    font-size: 18px;
+  }
+
+  .scoreBanner {
+    padding: 20px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border-left: none;
+    border-top: 8px solid var(--score-color, #f59e0b);
+  }
+
+  .scoreCircle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .scoreNumber {
+    font-size: 32px;
+  }
+
+  .scoreBannerSub {
+    font-size: 18px;
+  }
+
+  .resultGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .dashboard {
+    padding: 14px;
+    gap: 16px;
+  }
+
+  .dashboardLeftSection {
+    padding: 18px;
+  }
+
+  .dashboardHeading {
+    font-size: 20px;
+  }
+
+  .alertInfo {
+    margin: 20px 0;
+    border-radius: 16px;
+    font-size: 14px;
+  }
+
+  .aiAnalyzeBtn {
+    font-size: 15px;
+    padding: 14px 20px;
+  }
+
+  .scoreBannerSub {
+    font-size: 16px;
+  }
+
+  .resultCard {
+    padding: 18px;
+  }
+
+  .profileImg {
+    width: 90px;
+    height: 90px;
+  }
+
+  .rightSectionCard > p {
+    font-size: 17px;
+  }
+
+  .rightSectionCard h2 {
+    font-size: 17px;
+  }
+}
