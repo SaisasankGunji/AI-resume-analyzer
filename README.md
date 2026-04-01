@@ -6,7 +6,7 @@ An intelligent, full-stack resume screening web application powered by the **Coh
 
 ## 🚀 Live Demo
 
-> _Add your deployment URL here (Vercel, Render, Railway, etc.)_
+> _http://16.171.254.68:8000/ (Deployed using AWS EC2 instance)_
 
 ---
 
